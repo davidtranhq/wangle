@@ -3,11 +3,11 @@ function generateBoard() {
   const table = document.getElementById('board');
   // references to table rows
   const rows = [];
-  for (let i = 0; i < 6; ++i) {
+  for (let i = 0; i < 7; ++i) {
     // insert row at the end of the table
     const row = table.insertRow(-1);
     rows.push(row);
-    for (let j = 0; j < 6; ++j) {
+    for (let j = 0; j < 7; ++j) {
       const cell = row.insertCell();
       const text = document.createTextNode("");
       cell.appendChild(text);

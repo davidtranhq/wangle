@@ -16,7 +16,7 @@ class Game {
       const key = event.key.toLowerCase();
       if (/^[A-Za-z]{1}$/.test(key)) {
         // letter was pressed
-        if (this.guess.length < 6) {
+        if (this.guess.length < 7) {
           // append character to guess
           this.guess += key;
           this.fillTable();
@@ -64,7 +64,7 @@ class Game {
   // 1 if right letter wrong spot,
   // 2 if right letter right spot
   evaluateGuess() {
-    let res = new Array(6);
+    let res = new Array(7);
     // count occurences of each char
     let truth = `${this.truth}`;
     // scan for greens
