@@ -42,6 +42,13 @@ tr
     background-color: white;
     padding: 10px;
 }
+
+#wangler
+{
+    margin: auto;
+    display: none;
+}
+
 .rightPosition
 {
     background-color: #B5E61D;

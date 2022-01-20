@@ -54,6 +54,8 @@ class Game {
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
       fart.play();
+      var wangler = document.getElementById("wangler");
+      wangler.style.display = "block";
       setTimeout(() => {
         alert("you are a walter! :DDD");
       },10);
