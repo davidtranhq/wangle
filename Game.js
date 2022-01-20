@@ -51,6 +51,8 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
+      var fart = new Audio("/wangle/res/fart.mp3");
+      fart.play();
       setTimeout(() => {
         alert("you are a walter! :DDD");
       },10);
