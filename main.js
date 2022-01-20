@@ -7,7 +7,7 @@ function generateBoard() {
     // insert row at the end of the table
     const row = table.insertRow(-1);
     rows.push(row);
-    for (let j = 0; j < 7; ++j) {
+    for (let j = 0; j < 6; ++j) {
       const cell = row.insertCell();
       const text = document.createTextNode("");
       cell.appendChild(text);

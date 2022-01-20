@@ -16,7 +16,7 @@ class Game {
       const key = event.key.toLowerCase();
       if (/^[A-Za-z]{1}$/.test(key)) {
         // letter was pressed
-        if (this.guess.length < 7) {
+        if (this.guess.length < 6) {
           // append character to guess
           this.guess += key;
           this.fillTable();
@@ -53,7 +53,7 @@ class Game {
     if (result.every(x => x == 2)) {
       alert("you r a WALTER! :DDD");
       this.numGuess += 100;
-    } else if (this.numGuess > 5) {
+    } else if (this.numGuess > 6) {
       alert(`you r a bingus :(\nthe word was ${this.truth}`);
     }
     this.guess = "";
@@ -64,7 +64,7 @@ class Game {
   // 1 if right letter wrong spot,
   // 2 if right letter right spot
   evaluateGuess() {
-    let res = new Array(7);
+    let res = new Array(6);
     // count occurences of each char
     let truth = `${this.truth}`;
     // scan for greens
