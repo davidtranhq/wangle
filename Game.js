@@ -51,10 +51,14 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
-      alert("you r a WALTER! :DDD");
+      setTimeout(() => {
+        alert("you are a walter! :DDD");
+      },10);
       this.numGuess += 100;
     } else if (this.numGuess > 6) {
-      alert(`you r a bingus :(\nthe word was ${this.truth}`);
+      setTimeout(() => {
+        alert(`u r a bingus :(\nthe word was ${this.truth}`);
+      },10);
     }
     this.guess = "";
   }
