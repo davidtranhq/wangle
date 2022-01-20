@@ -1,0 +1,54 @@
+*
+{
+
+}
+header
+{
+    margin: auto;
+}
+body
+{
+    max-width: 500px;
+    margin: auto;
+}
+table
+{
+    border-spacing: 7px;
+}
+td
+{
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    border: 10px solid #eee;
+    background-color: #eee;
+    border-radius: 20px;
+    text-transform: uppercase;
+
+}
+tr
+{
+    margin: 20px;
+}
+#logo
+{
+    width: 80%;
+    max-width: 400px;
+    margin: auto;
+}
+#board
+{
+    margin: auto;
+    background-color: white;
+    padding: 10px;
+}
+.rightPosition
+{
+    background-color: #B5E61D;
+    border: 10px solid #B5E61D;
+}
+.rightLetter
+{
+    background-color: #B97A57;
+    border: 10px solid #B97A57;
+}
