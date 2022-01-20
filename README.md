@@ -1,4 +1,7 @@
 # wangle
+
+![](res/wangle.png)
+
 ## Wordle, but 6 letters :)
 By David Tran (monkey 1), Oscar Yu (monkey 3), and Andrea Ong (front-end monkey designer).
 
