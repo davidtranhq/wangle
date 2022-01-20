@@ -1,6 +1,6 @@
 # wangle
 ## Wordle, but 6 letters :)
-By David Tran and Oscar Yu.
+By David Tran (monkey 1), Oscar Yu (monkey 3), and Andrea Ong (front-end monkey designer).
 
 number of red bull clutches (oscar fixed something broken or had a big brain moment): `7`
 
