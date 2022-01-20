@@ -19,8 +19,9 @@ function generateBoard() {
 document.addEventListener('DOMContentLoaded', function () {
   const wordList = Array.from(words.values());
   const date = new Date();
-  const seed = new Math.seedrandom(`${date.getDay()}${date.getFullYear()}${date.getMonth()}`)
-  const dailyWord = wordList[(Math.random() * wordList.length) % wordList.length];
+  Math.seedrandom(`${date.getDay()}${date.getFullYear()}${date.getMonth()}`);
+  const randIdx = (Math.random() * wordList.length) % wordList.length;
+  const dailyWord = wordList[Math.floor(randIdx)];
   const game = new Game(dailyWord);
 });
 

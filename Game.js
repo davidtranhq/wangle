@@ -4,17 +4,16 @@ function setCharAt(str, index, chr) {
 }
 
 class Game {
-  constructor() {
+  constructor(dailyWord) {
     // reference to each <tr> in the board
     this.rows = generateBoard();
     this.numGuess = 0;
     this.guess = ''; // current guess 
-    this.truth = 'walter';
+    this.truth = dailyWord;
 
     document.addEventListener('keydown', (event) => {
       // listen for keyboard input and fill guess
-      const key = event.key;
-      console.log(key);
+      const key = event.key.toLowerCase();
       if (/^[A-Za-z]{1}$/.test(key)) {
         // letter was pressed
         if (this.guess.length < 6) {
@@ -25,6 +24,8 @@ class Game {
       } else if (event.key === 'Enter') {
         if (words.has(this.guess)) {
             this.submitGuess();
+        } else {
+          alert("not a word!");
         }
       } else if (event.key === 'Backspace') {
         // remove last character
@@ -36,7 +37,6 @@ class Game {
   
   // Fill the current row with the letters of the current guess
   fillTable() {
-    console.log(this.rows);
     for (let index = 0; index < this.guess.length; index++) {
       this.rows[this.numGuess].cells[index].innerHTML = this.guess.charAt(index);
     }
@@ -54,7 +54,7 @@ class Game {
       alert("you r a WALTER! :DDD");
       this.numGuess += 100;
     } else if (this.numGuess > 5) {
-      alert("you r a bingus :(");
+      alert(`you r a bingus :(\nthe word was ${this.truth}`);
     }
     this.guess = "";
   }
