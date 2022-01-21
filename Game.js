@@ -3,6 +3,18 @@ function setCharAt(str, index, chr) {
   return str.substring(0, index) + chr + str.substring(index + 1);
 }
 
+function daysBetween(StartDate, EndDate) {
+  // The number of milliseconds in all UTC days (no DST)
+  const oneDay = 1000 * 60 * 60 * 24;
+
+  // A day in UTC always lasts 24 hours (unlike in other time formats)
+  const start = Date.UTC(EndDate.getFullYear(), EndDate.getMonth(), EndDate.getDate());
+  const end = Date.UTC(StartDate.getFullYear(), StartDate.getMonth(), StartDate.getDate());
+
+  // so it's safe to divide by 24 hours
+  return (start - end) / oneDay;
+}
+
 class Game {
   constructor(dailyWord) {
     // reference to each <tr> in the board
@@ -10,6 +22,7 @@ class Game {
     this.numGuess = 0;
     this.guess = ''; // current guess 
     this.truth = dailyWord;
+    this.copyResult = '';
 
     document.addEventListener('keydown', (event) => {
       // listen for keyboard input and fill guess
@@ -51,6 +64,7 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
+      navigator.clipboard.writeText(this.makeShareMsg());
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
       fart.play();
@@ -58,7 +72,7 @@ class Game {
       wangler.style.display = "block";
       setTimeout(() => {
         alert("you are a walter! :DDD");
-      },10);
+      }, 10);
       this.numGuess += 100;
     } else if (this.numGuess > 6) {
       setTimeout(() => {
@@ -105,12 +119,25 @@ class Game {
     for (let index = 0; index < values.length; index++) {
       if (values[index] === 2) {
         this.rows[this.numGuess].cells[index].classList.add("rightPosition");
+        this.copyResult += "🟢";
       }
       else if (values[index] === 1) {
         this.rows[this.numGuess].cells[index].classList.add("rightLetter");
+        this.copyResult += "🟤";
+      }
+      else {
+        this.copyResult += "⚪";
       }
     }
+    this.copyResult += "\n";
   }
 
-  
+  // Create a share message with the results as emojis
+  makeShareMsg() {
+    const firstDay = new Date(2022, 0, 19); // Jan 19, 2022
+    const num = daysBetween(firstDay, new Date());
+    let msg = `wangle ${num}\n${this.numGuess + 1}/7\n`;
+    msg += this.copyResult;
+    return msg;
+  }
 };
