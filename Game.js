@@ -75,6 +75,9 @@ class Game {
       }, 10);
       this.numGuess += 100;
     } else if (this.numGuess > 6) {
+      var boing = new Audio("/wangle/res/boing.mp3");
+      boing.volume = 0.2;
+      boing.play();
       setTimeout(() => {
         alert(`u r a bingus :(\nthe word was ${this.truth}`);
       },10);
