@@ -16,11 +16,6 @@ footer
     background-color: #eee;
     width: 100vw;
 }
-body
-{
-    max-width: 500px;
-    margin: auto;
-}
 table
 {
     border-spacing: 7px;
@@ -40,6 +35,11 @@ tr
 {
     margin: 20px;
 }
+#main
+{
+    display: flex;
+    justify-content: center;
+}
 #logo
 {
     width: 80%;
@@ -48,15 +48,13 @@ tr
 }
 #board
 {
-    margin: auto;
     background-color: white;
     padding: 10px;
 }
 
-#wangler
+.flip
 {
-    margin: auto;
-    display: none;
+    transform: scaleX(-1);
 }
 
 #yay-win
