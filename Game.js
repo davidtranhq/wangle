@@ -22,11 +22,7 @@ class Game {
     this.numGuess = 0;
     this.guess = ''; // current guess 
     this.truth = dailyWord;
-<<<<<<< HEAD
     this.copyResult = '';
-=======
-    this.copyResult = "";
->>>>>>> f84dbfe1becb49b32c30f3dd919ac4b5e27ed0b8
 
     document.addEventListener('keydown', (event) => {
       // listen for keyboard input and fill guess
@@ -68,11 +64,7 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
-<<<<<<< HEAD
       navigator.clipboard.writeText(this.makeShareMsg());
-=======
-      navigator.clipboard.writeText(this.copyResult);
->>>>>>> f84dbfe1becb49b32c30f3dd919ac4b5e27ed0b8
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
       fart.play();
