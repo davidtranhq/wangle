@@ -10,6 +10,7 @@ class Game {
     this.numGuess = 0;
     this.guess = ''; // current guess 
     this.truth = dailyWord;
+    this.copyResult = "";
 
     document.addEventListener('keydown', (event) => {
       // listen for keyboard input and fill guess
@@ -51,6 +52,7 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
+      navigator.clipboard.writeText(this.copyResult);
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
       fart.play();
@@ -105,11 +107,17 @@ class Game {
     for (let index = 0; index < values.length; index++) {
       if (values[index] === 2) {
         this.rows[this.numGuess].cells[index].classList.add("rightPosition");
+        this.copyResult += "🟢";
       }
       else if (values[index] === 1) {
         this.rows[this.numGuess].cells[index].classList.add("rightLetter");
+        this.copyResult += "🟤";
+      }
+      else {
+        this.copyResult += "⚪";
       }
     }
+    this.copyResult += "\n";
   }
 
   
