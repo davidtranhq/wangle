@@ -59,6 +59,18 @@ tr
     display: none;
 }
 
+#yay-win
+{
+    margin: auto;
+    display: none;
+}
+
+#you-losed
+{
+    margin: auto;
+    display: none;
+}
+
 .rightPosition
 {
     background-color: #B5E61D;

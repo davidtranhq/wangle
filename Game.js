@@ -68,16 +68,18 @@ class Game {
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
       fart.play();
-      var wangler = document.getElementById("wangler");
-      wangler.style.display = "block";
+      var winImg = document.getElementById("yay-win");
+      winImg.style.display = "block";
       setTimeout(() => {
         alert("you are a walter! :DDD");
       }, 10);
       this.numGuess += 100;
     } else if (this.numGuess > 6) {
-      var boing = new Audio("/wangle/res/boing.mp3");
+      var boing = new Audio("res/boing.mp3");
       boing.volume = 0.2;
       boing.play();
+      const loseImg = document.getElementById("you-losed");
+      loseImg.style.display = "block";
       setTimeout(() => {
         alert(`u r a bingus :(\nthe word was ${this.truth}`);
       },10);
