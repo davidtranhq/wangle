@@ -64,7 +64,6 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
-      numGuess -= 1;
       navigator.clipboard.writeText(this.makeShareMsg());
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
@@ -149,7 +148,7 @@ class Game {
   makeShareMsg() {
     const firstDay = new Date(2022, 0, 19); // Jan 19, 2022
     const num = daysBetween(firstDay, new Date());
-    let msg = `wangle ${num}\n${this.numGuess + 1}/7\n`;
+    let msg = `wangle ${num}\n${this.numGuess}/7\n`;
     msg += this.copyResult;
     return msg;
   }
