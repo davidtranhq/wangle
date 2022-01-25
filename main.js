@@ -20,21 +20,19 @@ function generateBoard() {
 // insertLetter: callback function called when a letter is pressed
 function generateKeyboard(insertLetter) {
   const table = document.getElementById("keyboard");
-  const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z", "backspace", "enter"];
   var counter = 1;
   var row = table.insertRow(-1);
   alphabet.forEach(letter => {
     var cell = row.insertCell();
     cell.classList.add(letter);
-    cell.innerHTML = letter;
+    if (letter == "backspace") {cell.innerHTML = "⌫";}
+    else if (letter == "enter") {cell.innerHTML = "↵";}
+    else {cell.innerHTML = letter;}
     cell.addEventListener('click', () => insertLetter(letter));
-    if (counter % 9 == 0) { row = table.insertRow(-1); }
+    if (counter % 7 == 0) { row = table.insertRow(-1); }
     counter += 1;
   });
-  cell = row.insertCell();
-  cell.classList.add("backspace");
-  cell.innerHTML = "⌫";
-  cell.addEventListener('click', () => insertLetter("backspace"));
   return 0;
 }
 
