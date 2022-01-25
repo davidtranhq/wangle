@@ -37,13 +37,13 @@ class Game {
         this.guess += ch;
         this.fillTable();
       }
-    } else if (ch === 'Enter') {
+    } else if (ch === 'enter') {
       if (words.has(this.guess)) {
         this.submitGuess();
       } else {
         alert("not a word!");
       }
-    } else if (ch === 'Backspace') {
+    } else if (ch === 'backspace') {
       // remove last character
       this.guess = this.guess.slice(0, -1);
       this.fillTable();
