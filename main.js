@@ -26,7 +26,7 @@ function generateKeyboard() {
     var cell = row.insertCell();
     cell.classList.add(letter);
     cell.innerHTML = letter;
-    if (counter % 9 == 0) {console.log("new row"); row = table.insertRow(-1)}
+    if (counter % 9 == 0) { row = table.insertRow(-1); }
     counter += 1;
   });
   return 0;
