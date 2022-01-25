@@ -23,7 +23,6 @@ function generateKeyboard() {
   var counter = 1;
   var row = table.insertRow(-1);
   alphabet.forEach(letter => {
-    console.log(letter);
     var cell = row.insertCell();
     cell.classList.add(letter);
     cell.innerHTML = letter;
