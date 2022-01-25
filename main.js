@@ -31,6 +31,10 @@ function generateKeyboard(insertLetter) {
     if (counter % 9 == 0) { row = table.insertRow(-1); }
     counter += 1;
   });
+  cell = row.insertCell();
+  cell.classList.add("backspace");
+  cell.innerHTML = "⌫";
+  cell.addEventListener('click', () => insertLetter("backspace"));
   return 0;
 }
 
