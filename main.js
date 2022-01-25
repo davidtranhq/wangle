@@ -17,7 +17,8 @@ function generateBoard() {
   return rows;
 }
 
-function generateKeyboard() {
+// insertLetter: callback function called when a letter is pressed
+function generateKeyboard(insertLetter) {
   const table = document.getElementById("keyboard");
   const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   var counter = 1;
@@ -26,6 +27,7 @@ function generateKeyboard() {
     var cell = row.insertCell();
     cell.classList.add(letter);
     cell.innerHTML = letter;
+    cell.addEventListener('click', () => insertLetter(letter));
     if (counter % 9 == 0) { row = table.insertRow(-1); }
     counter += 1;
   });
@@ -39,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const randIdx = (Math.random() * wordList.length) % wordList.length;
   const dailyWord = wordList[Math.floor(randIdx)];
   const game = new Game(dailyWord);
-  generateKeyboard();
+  generateKeyboard(game.insertLetter.bind(game));
 });
 
 

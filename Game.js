@@ -24,28 +24,30 @@ class Game {
     this.truth = dailyWord;
     this.copyResult = '';
 
-    document.addEventListener('keydown', (event) => {
-      // listen for keyboard input and fill guess
-      const key = event.key.toLowerCase();
-      if (/^[A-Za-z]{1}$/.test(key)) {
-        // letter was pressed
-        if (this.guess.length < 6) {
-          // append character to guess
-          this.guess += key;
-          this.fillTable();
-        }
-      } else if (event.key === 'Enter') {
-        if (words.has(this.guess)) {
-            this.submitGuess();
-        } else {
-          alert("not a word!");
-        }
-      } else if (event.key === 'Backspace') {
-        // remove last character
-        this.guess = this.guess.slice(0, -1);
+    document.addEventListener('keydown', (event) => this.insertLetter(event.key));
+  }
+
+  // Add a letter to the current guess
+  insertLetter(ch) {
+    ch = ch.toLowerCase();
+    if (/^[A-Za-z]{1}$/.test(ch)) {
+      // letter was pressed
+      if (this.guess.length < 6) {
+        // append character to guess
+        this.guess += ch;
         this.fillTable();
       }
-    });
+    } else if (ch === 'Enter') {
+      if (words.has(this.guess)) {
+        this.submitGuess();
+      } else {
+        alert("not a word!");
+      }
+    } else if (ch === 'Backspace') {
+      // remove last character
+      this.guess = this.guess.slice(0, -1);
+      this.fillTable();
+    }
   }
   
   // Fill the current row with the letters of the current guess
