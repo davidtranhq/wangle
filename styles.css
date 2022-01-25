@@ -27,7 +27,6 @@ td
     height: 20px;
     border: 10px solid #eee;
     background-color: #eee;
-    border-radius: 20px;
     text-transform: uppercase;
 
 }
@@ -36,6 +35,11 @@ tr
     margin: 20px;
 }
 #main
+{
+    display: flex;
+    justify-content: center;
+}
+#secondary
 {
     display: flex;
     justify-content: center;
@@ -51,7 +55,10 @@ tr
     background-color: white;
     padding: 10px;
 }
-
+.cell
+{
+    border-radius: 20px;
+}
 .flip
 {
     transform: scaleX(-1);
@@ -69,13 +76,18 @@ tr
     display: none;
 }
 
-.rightPosition
+.wrongLetter
 {
-    background-color: #B5E61D;
-    border: 10px solid #B5E61D;
+    background-color: grey;
+    border: 10px solid grey;
 }
 .rightLetter
 {
     background-color: #B97A57;
     border: 10px solid #B97A57;
+}
+.rightPosition
+{
+    background-color: #B5E61D;
+    border: 10px solid #B5E61D;
 }

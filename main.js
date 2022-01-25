@@ -10,10 +10,27 @@ function generateBoard() {
     for (let j = 0; j < 6; ++j) {
       const cell = row.insertCell();
       const text = document.createTextNode("");
+      cell.classList.add("cell")
       cell.appendChild(text);
     }
   }
   return rows;
+}
+
+function generateKeyboard() {
+  const table = document.getElementById("keyboard");
+  const alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  var counter = 1;
+  var row = table.insertRow(-1);
+  alphabet.forEach(letter => {
+    console.log(letter);
+    var cell = row.insertCell();
+    cell.classList.add(letter);
+    cell.innerHTML = letter;
+    if (counter % 9 == 0) {console.log("new row"); row = table.insertRow(-1)}
+    counter += 1;
+  });
+  return 0;
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -23,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const randIdx = (Math.random() * wordList.length) % wordList.length;
   const dailyWord = wordList[Math.floor(randIdx)];
   const game = new Game(dailyWord);
+  generateKeyboard();
 });
 
 

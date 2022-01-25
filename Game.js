@@ -64,6 +64,7 @@ class Game {
     this.changeCell(result);
     this.numGuess += 1;
     if (result.every(x => x == 2)) {
+      numGuess -= 1;
       navigator.clipboard.writeText(this.makeShareMsg());
       var fart = new Audio("/wangle/res/fart.mp3");
       fart.volume = 0.1;
@@ -98,7 +99,10 @@ class Game {
     // scan for greens
     for (let i = 0; i < this.guess.length; ++i) {
       const c = this.guess[i];
+      console.log(c.toUpperCase());
+      var letter = document.getElementsByClassName(c.toUpperCase())[0];
       if (c === truth[i]) {
+        letter.classList.add("rightPosition");
         res[i] = 2;
         truth = setCharAt(truth, i, '-');
       }
@@ -109,10 +113,14 @@ class Game {
         continue;
       }
       const c = this.guess[i];
+      console.log(c.toUpperCase());
+      letter = document.getElementsByClassName(c.toUpperCase())[0];
       if (truth.includes(c)) {
         truth = setCharAt(truth, truth.indexOf(c), '-');
+        letter.classList.add("rightLetter");
         res[i] = 1;
       } else {
+        letter.classList.add("wrongLetter");
         res[i] = 0;
       }
     }
